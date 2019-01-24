@@ -4,7 +4,6 @@ const port = 3001
 
 const db = require('./db');
 
-
 app.get('/', (req, res) => {
     db('methods') //shorthand select
     // db.select('*').from('methods')
