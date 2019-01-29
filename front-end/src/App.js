@@ -15,11 +15,12 @@ constructor(props) {
   description: '',
   example: '',
   clicked: false,
-  checkAnswer: true
+  checkAnswer: true,
+  percent: 0
   }
 }
 
-componentDidMount(){
+async componentDidMount(){
   fetch('http://localhost:3001/')
     .then(data => data.json())
     .then(JSONdata => {
@@ -36,6 +37,14 @@ getRandomMethod = (max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min 
 }
 
+percentDone = () => {
+  const percent = (1-(this.state.method.length / this.state.originalCount)) * 100 
+  this.setState({
+    percent: Math.round(percent)
+  })
+  console.log(this.state.percent)
+}
+
 addMethod = () => {
   const randIndex = this.getRandomMethod(this.state.method.length - 1)
   const randomMethod = this.state.method[randIndex]
@@ -48,6 +57,7 @@ addMethod = () => {
       checkAnswer: !this.state.clicked
     })
   }
+  this.percentDone()
 }
 
 checkIfCorrect = (event) => {
@@ -62,14 +72,7 @@ checkIfCorrect = (event) => {
        method: newMethodList
      }) 
     }
-    console.log(newMethodList)
   }
-
-percentDone = () => {
-  const percent = (this.state.method.length / this.state.originalCount) * 100 
-  return percent
-}
-
 
   render() {
     return (
@@ -104,7 +107,7 @@ percentDone = () => {
         <div class="col-3">
          </div>
          <div class="col-6">
-          <Progress percentDone={this.percentDone}/>
+          <Progress percent={this.state.percent}/>
          </div>
          <div class="col-3">
          </div>
