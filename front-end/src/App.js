@@ -3,7 +3,7 @@ import './App.css';
 import Card from './components/card'
 import Submit from './components/submit'
 import Progress from './components/progress'
-// import AppRouter from './components/router'
+import AppRouter from './components/router'
 
 class App extends Component {
 
@@ -61,12 +61,7 @@ addMethod = () => {
 }
 
 checkIfCorrect = (event) => {
-  console.log(event.target.value)
-  const findname = this.state.method.map(method => method.name)
-  const equals = (element) => element === this.state.name 
- 
-  const findIndex = findname.findIndex(equals)
-  const newMethodList = this.state.method.splice(findIndex, 1)
+  const newMethodList = this.state.method.filter(method => method.name !== this.state.name)
   if(event.target.value === 'Yes'){ 
      this.setState({
        method: newMethodList
@@ -87,7 +82,7 @@ checkIfCorrect = (event) => {
        </div>
        <div class="row">
         <div class="col-3">
-        {/* <AppRouter/> */}
+        <AppRouter/>
         </div>
         <div class="col-6">
          <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer}/>
