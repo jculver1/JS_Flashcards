@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const Index = () => <h2>Home</h2>;
+
 const Users = () => <h2>Users</h2>;
 
 const AppRouter = () => (
