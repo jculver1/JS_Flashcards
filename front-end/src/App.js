@@ -69,6 +69,14 @@ checkIfCorrect = (event) => {
     }
   }
 
+  newMethodName = (e) => {
+    console.log(e.target.value)
+  }
+
+  newMethodDescription = (e) => {
+    console.log(e.target.value)
+  }
+
   render() {
     return (
       <div class="container">
@@ -82,10 +90,10 @@ checkIfCorrect = (event) => {
        </div>
        <div class="row">
         <div class="col-3">
-        <AppRouter/>
+        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription}/>
         </div>
         <div class="col-6">
-         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer}/>
+         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.method}/>
          </div>
         </div>
         <div class="col-3">

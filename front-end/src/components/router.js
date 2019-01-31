@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from './form'
-import { props } from "bluebird";
+
 
 const Index = () => <h2>Home</h2>;
 
 const AddMethods = () => <h2>Add a new method:</h2>;
 
-const AppRouter = () => (
+const AppRouter = (props) => (
   <Router>
     <div>
       <nav>
@@ -20,9 +20,11 @@ const AppRouter = () => (
           </li>
         </ul>
       </nav>
-
       <Route path="/" exact component={Index} />
-      <Route path="/form/" component={Form} />
+      <Route path="/form/" 
+         render={() => 
+          <Form 
+            newMethodName={props.newMethodName}  newMethodDescription={newMethodDescription}/>} />  
     </div>
   </Router>
 );
