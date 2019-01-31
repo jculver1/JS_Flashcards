@@ -11,7 +11,7 @@ const Form = (props) => {
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Add method description" onChange={(event)=> props.newMethodDescription(event)}></input>
+    <input onChange={(event)=> props.newMethodDescription(event)}></input>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
