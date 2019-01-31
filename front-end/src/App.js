@@ -16,7 +16,9 @@ constructor(props) {
   example: '',
   clicked: false,
   checkAnswer: true,
-  percent: 0
+  percent: 0,
+  newMethodName: '',
+  newMethodDescription: ''
   }
 }
 
@@ -70,11 +72,15 @@ checkIfCorrect = (event) => {
   }
 
   newMethodName = (e) => {
-    console.log(e.target.value)
+    this.setState({
+      newMethodName: e.target.value 
+    })
   }
 
   newMethodDescription = (e) => {
-    console.log(e.target.value)
+    this.setState({
+      newMethodDescription: e.target.value 
+    })
   }
 
   render() {
