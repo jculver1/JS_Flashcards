@@ -19,6 +19,9 @@ const AppRouter = (props) => (
           <li>
             <Link to="/form/">Add Method</Link>
           </li>
+          <li>
+            <Link to="/delete/">Delete Method</Link>
+          </li>
         </ul>
       </nav>
       <Route path="/" exact component={Index} />
@@ -32,7 +35,7 @@ const AppRouter = (props) => (
       <Route path="/delete"
         render={()=>
         <Delete
-          
+         listOfMethods={props.listOfMethods.map(method => <option value={method.id}>{method.name}</option>)}
         />} />
     </div>
   </Router>
