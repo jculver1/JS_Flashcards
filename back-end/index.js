@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
     });
 })
 
-app.post('/form', (req, res, next) => {
+app.post('/', (req, res, next) => {
   console.log(req.body)
   db('methods').insert(req.body) 
   .then((rows) => {

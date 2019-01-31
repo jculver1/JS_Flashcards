@@ -22,8 +22,10 @@ constructor(props) {
   }
 }
 
+serverName = 'http://localhost:3001/'
+
 async componentDidMount(){
-  fetch('http://localhost:3001/')
+  fetch(this.serverName)
     .then(data => data.json())
     .then(JSONdata => {
       this.setState({
@@ -31,6 +33,20 @@ async componentDidMount(){
         originalCount: JSONdata.length
       })
     })
+}
+
+postNewMethod = () => {
+  fetch(`${this.serverName}`, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: this.state.newMethodName,
+      description: this.state.newMethodDescription,
+    })
+  })
 }
 
 getRandomMethod = (max) => {
@@ -96,7 +112,7 @@ checkIfCorrect = (event) => {
        </div>
        <div class="row">
         <div class="col-3">
-        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription}/>
+        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod}/>
         </div>
         <div class="col-6">
          <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.method}/>

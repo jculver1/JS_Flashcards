@@ -7,13 +7,13 @@ const Form = (props) => {
     
   <div class="form-group">
     <label for="exampleInputEmail1">Method Name</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter method name" onChange={(event)=>props.newMethodName(event)}></input>
+    <input placeholder="Enter method name" onChange={(event)=>props.newMethodName(event)}></input>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
     <input onChange={(event)=> props.newMethodDescription(event)}></input>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" onClick={props.postNewMethod()}>Submit</button>
 </form>
   )
 }

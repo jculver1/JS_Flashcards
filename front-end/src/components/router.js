@@ -25,7 +25,9 @@ const AppRouter = (props) => (
          render={() => 
           <Form 
             newMethodName={props.newMethodName}
-            newMethodDescription={props.newMethodDescription} />} />  
+            newMethodDescription={props.newMethodDescription}
+            postNewMethod = {props.postNewMethod}
+            />} />  
     </div>
   </Router>
 );
