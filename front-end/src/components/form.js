@@ -13,7 +13,7 @@ const Form = (props) => {
     <label for="exampleInputPassword1">Description</label>
     <input onChange={(event)=> props.newMethodDescription(event)}></input>
   </div>
-  <button type="submit" class="btn btn-primary" onClick={props.postNewMethod()}>Submit</button>
+  <button type="submit" class="btn btn-primary" onClick={() => props.postNewMethod()}>Submit</button>
 </form>
   )
 }
