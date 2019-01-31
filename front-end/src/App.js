@@ -36,7 +36,7 @@ async componentDidMount(){
 }
 
 postNewMethod = () => {
-  fetch(`${this.serverName}`, {
+  fetch(this.serverName, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

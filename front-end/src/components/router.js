@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from './form'
+import Delete from './delete'
 
 
 const Index = () => <h2>Home</h2>;
@@ -28,6 +29,11 @@ const AppRouter = (props) => (
             newMethodDescription={props.newMethodDescription}
             postNewMethod = {props.postNewMethod}
             />} />  
+      <Route path="/delete"
+        render={()=>
+        <Delete
+          
+        />} />
     </div>
   </Router>
 );
