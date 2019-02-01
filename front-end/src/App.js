@@ -19,7 +19,8 @@ constructor(props) {
   percent: 0,
   newMethodName: '',
   newMethodDescription: '',
-  newMethodList: []
+  newMethodList: [],
+  id: 0
   }
 }
 
@@ -115,9 +116,18 @@ checkIfCorrect = (event) => {
   selectToDelete = (event) => {
     const newList = this.state.method.filter(method => `${method.id}` !== event.target.value)
     this.setState({
-      method: newList
+      method: newList,
+      id: event.target.value
     })
   }
+
+ deleteMethod = () => {
+    fetch(`${this.serverName}${this.state.id}`, {
+      method: 'DELETE'
+    }).then(console.log('yep'))
+    .catch('nope')
+  }
+
 
   // deleteMethod = () => {
   //   this.setState({

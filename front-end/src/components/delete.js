@@ -8,7 +8,7 @@ const Delete = (props) => {
     <select class="form-control" id="exampleFormControlSelect1" onChange={(event) => props.selectToDelete(event)}>
         {props.listOfMethods}
     </select>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" onClick={props.deleteMethod}>Submit</button>
   </div>
   )
 }
