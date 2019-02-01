@@ -30,4 +30,17 @@ app.post('/', (req, res, next) => {
   });
 })
 
+app.delete('/:id', (req, res, next) => {
+  db('methods').where({id: req.params.id}).del()
+  .then(data => {
+      res.status(200).send({
+      message: 'Method deleted',
+      data: data
+    })
+  })
+    .catch((err)=> {
+      next(err)
+    })
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}! Yay SQL!`))
