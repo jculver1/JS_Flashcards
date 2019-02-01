@@ -151,7 +151,7 @@ checkIfCorrect = (event) => {
        </div>
        <div class="row">
         <div class="col-3">
-        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod}/>
+        <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
         </div>
         <div class="col-6">
          <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.method}/>
@@ -171,7 +171,6 @@ checkIfCorrect = (event) => {
         <div class="col-3">
          </div>
          <div class="col-6">
-          <Progress percent={this.state.percent}/>
          </div>
          <div class="col-3">
          </div>

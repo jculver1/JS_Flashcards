@@ -31,10 +31,6 @@
   }
 }
 
-.vertical {
-  display: inline-block;
-  width: 20%;
-  height: 40px;
-  -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+.progress{
   transform: rotate(-90deg);
-}
+} 
