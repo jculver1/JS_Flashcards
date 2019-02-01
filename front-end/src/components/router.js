@@ -14,7 +14,7 @@ const AppRouter = (props) => (
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Progress</Link>
           </li>
           <li>
             <Link to="/form/">Add Method</Link>
@@ -39,6 +39,7 @@ const AppRouter = (props) => (
          selectToDelete={props.selectToDelete}  
          deleteMethod ={props.deleteMethod}
         />} />
+      <Route path="/"></Route>
     </div>
   </Router>
 );
