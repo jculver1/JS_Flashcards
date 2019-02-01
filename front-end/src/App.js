@@ -154,7 +154,7 @@ checkIfCorrect = (event) => {
   editCard = () => {
     console.log('edit button')
     this.setState({
-      edit: true
+      edit: !this.state.edit
     })
   }
   

@@ -14,8 +14,8 @@ const Card = (props) => {
   <div class="card-footer text-muted">
   <a onClick = {props.addMethod} href="#" class="btn btn-primary">Next Question</a>
   <a onClick = {props.showAnser} href="#" class="btn btn-primary">Show Answer</a>
-   <a onClick = {props.editCard} href="#" class="btn btn-primary">Edit</a>
-   <a onClick = {props.changeMethod} href="#" class="btn btn-primary">Save Changes</a>
+   <a onClick = {props.editCard} href="#" class="btn btn-primary">{props.edit ? 'Hide Edit' : 'Edit' }</a>
+   {props.edit ? <a onClick = {props.changeMethod} href="#" class="btn btn-primary">Save Changes</a> : ''}
   </div>
 </div>
   )
