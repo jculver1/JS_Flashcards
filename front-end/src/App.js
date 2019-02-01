@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './components/card'
 import Submit from './components/submit'
-import Progress from './components/progress'
 import AppRouter from './components/router'
 
 class App extends Component {
@@ -20,7 +19,9 @@ constructor(props) {
   newMethodName: '',
   newMethodDescription: '',
   newMethodList: [],
-  id: 0
+  id: 0,
+  answerClicked: false ,
+  edit: false
   }
 }
 
@@ -74,10 +75,18 @@ addMethod = () => {
       description: randomMethod.description,
       example: randomMethod.example,
       clicked: !this.state.clicked,
-      checkAnswer: !this.state.clicked
+      checkAnswer: !this.state.clicked,
+      answerClicked: false
     })
   }
   this.percentDone()
+}
+
+showAnser = () => {
+  console.log('clicked')
+  this.setState({
+    answerClicked: true
+  })
 }
 
 checkIfCorrect = (event) => {
@@ -136,6 +145,12 @@ checkIfCorrect = (event) => {
   //   console.log(this.state.method)
   // }
 
+  edit = () => {
+    console.log('edit button')
+    this.setState({
+      edit: true
+    })
+  }
   
 
   render() {
@@ -154,7 +169,7 @@ checkIfCorrect = (event) => {
         <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
         </div>
         <div class="col-6">
-         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.method}/>
+         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.edit}/>
          </div>
         </div>
         <div class="col-3">
@@ -162,7 +177,7 @@ checkIfCorrect = (event) => {
          <div class="row pt-5">
          <div class="col-3">
         </div>
-        <div class="col-6">{!this.state.checkAnswer ? <Submit checkIfCorrect={this.checkIfCorrect}/> : ''}
+        <div class="col-6">{this.state.answerClicked ? <Submit checkIfCorrect={this.checkIfCorrect}/> : ''}
         </div> 
          <div class="col-3">
         </div>
@@ -176,7 +191,6 @@ checkIfCorrect = (event) => {
          </div>
         </div>
         </div>
-        
     );
   }
 }

@@ -5,15 +5,16 @@ const Card = (props) => {
   return (
 <div class="card text-center">
   <div class="card-header">
-    JS Methods 
+  {props.methodLength === 0 ? 'Whoop!' : props.answerClicked ? props.name : '' }
   </div>
   <div class="card-body">
-    <h5 class="card-title">{props.emptyList.length === 0 ? 'Whoop! You got them all!' :  props.clicked ? props.description : props.name}</h5>
+    <h5 class="card-title">{props.methodLength === 0 ? 'All done!' : props.description}</h5>
     <p class="card-text"></p>
-    <a onClick = {props.addMethod} href="#" class="btn btn-primary">{ props.clicked ? 'keep goin' : 'button' }</a>
   </div>
   <div class="card-footer text-muted">
-    {/* {props.clicked ? '' : 'Did you guess right?'} */}
+  <a onClick = {props.addMethod} href="#" class="btn btn-primary">Next Question</a>
+  <a onClick = {props.showAnser} href="#" class="btn btn-primary">Show Answer</a>
+   <a onClick = {props.edit} href="#" class="btn btn-primary">Edit</a>
   </div>
 </div>
   )
