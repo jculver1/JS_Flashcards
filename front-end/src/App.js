@@ -18,7 +18,8 @@ constructor(props) {
   checkAnswer: true,
   percent: 0,
   newMethodName: '',
-  newMethodDescription: ''
+  newMethodDescription: '',
+  newMethodList: []
   }
 }
 
@@ -87,17 +88,45 @@ checkIfCorrect = (event) => {
     }
   }
 
-  newMethodName = (e) => {
+  newMethodName = (event) => {
     this.setState({
-      newMethodName: e.target.value 
+      newMethodName: event.target.value 
     })
   }
 
-  newMethodDescription = (e) => {
+  newMethodDescription = (event) => {
     this.setState({
-      newMethodDescription: e.target.value 
+      newMethodDescription: event.target.value 
     })
   }
+
+  // deleteMethod = (event) => {
+  //   const newList = this.state.method.map(method => {
+  //     if(method.id !== event.target.value)
+  //     return method 
+  //   }) 
+  //   this.setState({
+  //     newMethodList: newList
+  //   })
+  //   console.log(newList) 
+  //   console.log(event.target.value)
+  // }
+
+  selectToDelete = (event) => {
+    const newList = this.state.method.filter(method => `${method.id}` !== event.target.value)
+    this.setState({
+      method: newList
+    })
+  }
+
+  // deleteMethod = () => {
+  //   this.setState({
+  //     method: this.state.newMethodList
+  //   })
+  //   console.log(this.state.method)
+  // }
+
+  
 
   render() {
     return (
@@ -112,7 +141,7 @@ checkIfCorrect = (event) => {
        </div>
        <div class="row">
         <div class="col-3">
-        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method}/>
+        <AppRouter newMethodName={this.newMethodName}  newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod}/>
         </div>
         <div class="col-6">
          <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.method}/>

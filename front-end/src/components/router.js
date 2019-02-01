@@ -36,6 +36,7 @@ const AppRouter = (props) => (
         render={()=>
         <Delete
          listOfMethods={props.listOfMethods.map(method => <option value={method.id}>{method.name}</option>)}
+         selectToDelete={props.selectToDelete} 
         />} />
     </div>
   </Router>
