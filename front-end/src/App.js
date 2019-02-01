@@ -52,7 +52,8 @@ postNewMethod = () => {
   })
 }
 
-ChangeMethod = () => {
+changeMethod = () => {
+  console.log('put it', this.state.id)
   fetch(`${this.serverName}${this.state.id}`, {
     method: 'PUT',
     headers: {
@@ -87,6 +88,7 @@ addMethod = () => {
     this.setState({
       name: randomMethod.name,
       description: randomMethod.description,
+      id : randomMethod.id,
       example: randomMethod.example,
       clicked: !this.state.clicked,
       checkAnswer: !this.state.clicked,
@@ -113,12 +115,14 @@ checkIfCorrect = (event) => {
   }
 
   newMethodName = (event) => {
+    console.log(this.state.newMethodName)
     this.setState({
       newMethodName: event.target.value 
     })
   }
 
   newMethodDescription = (event) => {
+    console.log(this.state.newMethodDescription)
     this.setState({
       newMethodDescription: event.target.value 
     })
@@ -183,7 +187,7 @@ checkIfCorrect = (event) => {
         <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
         </div>
         <div class="col-6">
-         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.state.edit} editCard={this.editCard}/>
+         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.state.edit} editCard={this.editCard} newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} changeMethod={this.changeMethod}/>
          </div>
         </div>
         <div class="col-3">
