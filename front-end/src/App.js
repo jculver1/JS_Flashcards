@@ -12,6 +12,7 @@ constructor(props) {
   method: [],
   name: '',
   description: '',
+  id: 0,
   example: '',
   clicked: false,
   checkAnswer: true,
@@ -19,7 +20,6 @@ constructor(props) {
   newMethodName: '',
   newMethodDescription: '',
   newMethodList: [],
-  id: 0,
   answerClicked: false ,
   edit: false
   }
@@ -127,18 +127,6 @@ checkIfCorrect = (event) => {
       newMethodDescription: event.target.value 
     })
   }
-
-  // deleteMethod = (event) => {
-  //   const newList = this.state.method.map(method => {
-  //     if(method.id !== event.target.value)
-  //     return method 
-  //   }) 
-  //   this.setState({
-  //     newMethodList: newList
-  //   })
-  //   console.log(newList) 
-  //   console.log(event.target.value)
-  // }
 
   selectToDelete = (event) => {
     const newList = this.state.method.filter(method => `${method.id}` !== event.target.value)
