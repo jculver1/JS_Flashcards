@@ -52,6 +52,20 @@ postNewMethod = () => {
   })
 }
 
+ChangeMethod = () => {
+  fetch(`${this.serverName}${this.state.id}`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: this.state.newMethodName,
+      description: this.state.newMethodDescription,
+    })
+  })
+}
+
 getRandomMethod = (max) => {
   const min = 0
   max = this.state.method.length - 1
@@ -145,7 +159,7 @@ checkIfCorrect = (event) => {
   //   console.log(this.state.method)
   // }
 
-  edit = () => {
+  editCard = () => {
     console.log('edit button')
     this.setState({
       edit: true
@@ -169,7 +183,7 @@ checkIfCorrect = (event) => {
         <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
         </div>
         <div class="col-6">
-         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.edit}/>
+         <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.state.edit} editCard={this.editCard}/>
          </div>
         </div>
         <div class="col-3">
