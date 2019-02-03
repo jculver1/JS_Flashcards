@@ -26,8 +26,15 @@ const AppRouter = (props) => (
       </div>
       <Route path="/progress" 
       render={() => 
-        <Progress percent={props.percent}
-        />}
+        <div class='row'>
+          <div class='col-4'>
+            <Progress percent={props.percent}/>
+          </div>
+          <div class='col-6'></div>
+          <div class='col-2'></div>
+        </div>
+        }
+
       />
       <Route path="/form/" 
          render={() => 

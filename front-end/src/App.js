@@ -128,17 +128,11 @@ checkIfCorrect = (event) => {
   selectToDelete = (event) => {
     const newList = this.state.method.filter(method => `${method.id}` !== event.target.value)
 
-    // this.setState({
-    //   newMethodList: newList,
-    //   deleteID: event.target.value
-    // })
     this.setState({
       newMethodList: newList,
       id: event.target.value
     })
   }
-
-
 
  deleteMethod = () => {
     fetch(`${this.serverName}${this.state.id}`, {
@@ -162,41 +156,31 @@ checkIfCorrect = (event) => {
   render() {
     return (
       <div class="container">
-        <div class="row"> 
-        <div class="col-3">
-        </div>
-         <div class='col-6'> 
-         </div>
-         <div class="col-3">
-        </div>
+        <div class="row mb-5"> 
+        <div class="col-4"></div>
+         <div class='col-6'></div>
+         <div class="col-2"></div>
        </div>
        <div class="row">
-        <div class="col-3">
-        <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
-        </div>
+        <div class="col-4">
+          <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}/>
+          </div>
         <div class="col-6">
          <Card emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.state.edit} editCard={this.editCard} newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} changeMethod={this.changeMethod}/>
          </div>
         </div>
-        <div class="col-3">
-         </div>
-         <div class="row pt-5">
-         <div class="col-3">
-        </div>
-        <div class="col-6">{this.state.answerClicked ? <Submit checkIfCorrect={this.checkIfCorrect}/> : ''}
-        </div> 
-         <div class="col-3">
-        </div>
-         </div>
-        <div class="row pt-5">
-        <div class="col-3">
-         </div>
-         <div class="col-6">
-         </div>
-         <div class="col-3">
-         </div>
-        </div>
-        </div>
+        <div class="col-2"></div>
+      <div class="row pt-5">
+        <div class="col-4"></div>
+        <div class="col-6">{this.state.answerClicked ? <Submit checkIfCorrect={this.checkIfCorrect}/> : ''}</div> 
+        <div class="col-2"></div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-4"></div>
+         <div class="col-6"></div>
+         <div class="col-2"></div>
+      </div>
+    </div>
     );
   }
 }
