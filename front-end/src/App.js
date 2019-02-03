@@ -114,12 +114,14 @@ checkIfCorrect = (event) => {
   }
 
   newMethodName = (event) => {
+    console.log(event.target.value)
     this.setState({
       newMethodName: event.target.value 
     })
   }
 
   newMethodDescription = (event) => {
+    console.log(event.target.value)
     this.setState({
       newMethodDescription: event.target.value 
     })
