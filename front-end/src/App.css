@@ -1,7 +1,4 @@
-
-/* .progress{
-  transform: rotate(-90deg);
-}  */
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans');
 
 .cardContainer {
   display: flex; 
@@ -13,10 +10,6 @@
   justify-content: center;
 }
 
-/* .card-header {
-  align-self: center;
-} */
-
-/* .card {
-
-} */
+.card-header {
+  font-size: 25px;
+}
