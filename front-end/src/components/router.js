@@ -2,48 +2,39 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Form from './form'
 import Delete from './delete'
-import Progress from './progress'
-
-const Index = () => <h2>Home</h2>;
+// import Progress from './progress'
+import Card from './card'
 
 const AppRouter = (props) => (
   <Router>
-    <div>
-      <div class='row mb-5'>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/progress">Progress</Link>
-          </li>
-          <li>
-            <Link to="/form/">Add Method</Link>
-          </li>
-          <li>
-            <Link to="/delete/:id/">Delete Method</Link>
-          </li>
-        </ul>
-      </nav>
-      </div>
-      <Route path="/progress" 
+<div>
+<div>
+    <nav className="navbar navbar-expand-lg navbar-light  bg-light">
+      <Link className="navbar-brand" to="/home">Flash Cards</Link>
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <Link className="nav-link" to="/add">Add Method</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/delete/:id/">Delete Method</Link>
+        </li>
+      </ul>
+    </nav>
+  </div>
+      <Route path="/home" 
       render={() => 
-        <div class='row'>
-          <div class='col-4'>
-            <Progress percent={props.percent}/>
-          </div>
-          <div class='col-6'></div>
-          <div class='col-2'></div>
-        </div>
-        }
-
+        <Card
+          emptyList={props.emptyList} addMethod={props.addMethod} description={props.description} clicked={props.clicked} name={props.name} checkAnswer={props.checkAnswer} originalCount={props.originalCount} methodLength={props.methodLength} showAnser={props.showAnser} answerClicked={props.answerClicked} edit={props.edit} editCard={props.editCard} newMethodName={props.newMethodName} newMethodDescription={props.newMethodDescription} changeMethod={props.changeMethod}
+        />}
       />
-      <Route path="/form/" 
+      <Route path="/add/" 
          render={() => 
           <Form 
             newMethodName={props.newMethodName}
             newMethodDescription={props.newMethodDescription}
             postNewMethod = {props.postNewMethod}
-            />} 
-            />  
+          />} 
+        />  
       <Route path="/delete/:id"
         render={() =>
         <Delete
@@ -51,7 +42,7 @@ const AppRouter = (props) => (
          selectToDelete={props.selectToDelete}  
          deleteMethod ={props.deleteMethod}
         />} 
-        />
+      />
     </div>
   </Router>
 );
