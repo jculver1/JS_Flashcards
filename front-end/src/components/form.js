@@ -4,16 +4,13 @@ import '../App.css';
 const Form = (props) => {
   return (
 <form>
-    
   <div class="form-group">
-    <label for="exampleInputEmail1">Method Name</label>
-    <input placeholder="Enter method name" onChange={(event)=>props.newMethodName(event)}></input>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Description</label>
-    <input onChange={(event)=> props.newMethodDescription(event)}></input>
-  </div>
+    <label for="exampleFormControlTextarea1">Method Name</label>
+    <textarea class="form-control mb-2" id="exampleFormControlTextarea1" onChange={(event)=>props.newMethodName(event)}></textarea>
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control mb-2" id="exampleFormControlTextarea1" onChange={(event)=>props.newMethodDescription(event)}></textarea>
   <button type="submit" class="btn btn-primary" onClick={() => props.postNewMethod()}>Submit</button>
+  </div>
 </form>
   )
 }
