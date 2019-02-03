@@ -20,7 +20,7 @@ constructor(props) {
   newMethodName: '',
   newMethodDescription: '',
   newMethodList: [],
-  answerClicked: false ,
+  answerClicked: false,
   edit: false
   }
 }
@@ -78,7 +78,6 @@ percentDone = () => {
   this.setState({
     percent: Math.round(percent)
   })
-  console.log(this.state.percent)
 }
 
 addMethod = () => {
@@ -115,14 +114,12 @@ checkIfCorrect = (event) => {
   }
 
   newMethodName = (event) => {
-    console.log(this.state.newMethodName)
     this.setState({
       newMethodName: event.target.value 
     })
   }
 
   newMethodDescription = (event) => {
-    console.log(this.state.newMethodDescription)
     this.setState({
       newMethodDescription: event.target.value 
     })
@@ -130,26 +127,29 @@ checkIfCorrect = (event) => {
 
   selectToDelete = (event) => {
     const newList = this.state.method.filter(method => `${method.id}` !== event.target.value)
+
+    // this.setState({
+    //   newMethodList: newList,
+    //   deleteID: event.target.value
+    // })
     this.setState({
-      method: newList,
+      newMethodList: newList,
       id: event.target.value
     })
   }
 
+
+
  deleteMethod = () => {
     fetch(`${this.serverName}${this.state.id}`, {
       method: 'DELETE'
-    }).then(console.log('yep'))
+    }).then(
+    this.setState({
+      method: this.state.newMethodList
+    })
+    )
     .catch('nope')
   }
-
-
-  // deleteMethod = () => {
-  //   this.setState({
-  //     method: this.state.newMethodList
-  //   })
-  //   console.log(this.state.method)
-  // }
 
   editCard = () => {
     console.log('edit button')
