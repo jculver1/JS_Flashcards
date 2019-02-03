@@ -14,7 +14,7 @@ import '../App.css';
 
 const Card = (props) => {
   return (
-<div class="card text-center">
+<div class="card text-center cardContainer">
   <div class="card-header">
   {props.methodLength === 0 ? 'Whoop!' : props.edit && props.answerClicked ? 
   <input onChange={(event)=>props.newMethodName(event)} type={"text"}></input>

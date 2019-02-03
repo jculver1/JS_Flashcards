@@ -3,3 +3,21 @@
 /* .progress{
   transform: rotate(-90deg);
 }  */
+
+.cardContainer {
+  display: flex; 
+  justify-content: center;
+}
+
+.routContainer {
+  display: flex; 
+  justify-content: center;
+}
+
+/* .card-header {
+  align-self: center;
+} */
+
+/* .card {
+
+} */

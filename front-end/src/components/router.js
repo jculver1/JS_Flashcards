@@ -8,7 +8,7 @@ import Card from './card'
 const AppRouter = (props) => (
   <Router>
 <div>
-<div>
+<div class ='row routContainer'>
     <nav className="navbar navbar-expand-lg navbar-light  bg-light">
       <Link className="navbar-brand" to="/home">Flash Cards</Link>
       <ul className="navbar-nav">
@@ -21,6 +21,7 @@ const AppRouter = (props) => (
       </ul>
     </nav>
   </div>
+  <div class ='row mt-5 cardContainer'>
       <Route path="/home" 
       render={() => 
         <Card
@@ -43,6 +44,7 @@ const AppRouter = (props) => (
          deleteMethod ={props.deleteMethod}
         />} 
       />
+    </div>
     </div>
   </Router>
 );
