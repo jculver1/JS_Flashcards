@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Card from './components/card'
 import Submit from './components/submit'
 import AppRouter from './components/router'
 
