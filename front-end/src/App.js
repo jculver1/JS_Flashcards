@@ -14,6 +14,7 @@ constructor(props) {
   id: 0,
   example: '',
   clicked: false,
+  changeFirstButton: false,
   checkAnswer: true,
   percent: 0,
   newMethodName: '',
@@ -74,6 +75,12 @@ getRandomMethod = (max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min 
 }
 
+changeButton = () => {
+  this.setState({
+    changeFirstButton: true
+  })
+}
+
 addMethod = () => {
   const randIndex = this.getRandomMethod(this.state.method.length - 1)
   const randomMethod = this.state.method[randIndex]
@@ -85,17 +92,11 @@ addMethod = () => {
       example: randomMethod.example,
       clicked: !this.state.clicked,
       checkAnswer: !this.state.clicked,
-      answerClicked: false
+      answerClicked: false,
+      changeFirstButton: true
     })
   }
 }
-
-// percentDone = () => {
-//   const percent = (1-(this.state.method.length / this.state.originalCount)) * 100 
-//   this.setState({
-//     percent: Math.round(percent)
-//   })
-// }
 
 showAnser = () => {
   this.setState({
@@ -163,6 +164,7 @@ checkIfCorrect = (event) => {
           <div class="col-6">
             <AppRouter newMethodName={this.newMethodName} newMethodDescription={this.newMethodDescription} postNewMethod ={this.postNewMethod} listOfMethods={this.state.method} selectToDelete={this.selectToDelete} deleteMethod={this.deleteMethod} percent={this.state.percent}
             emptyList = {this.state.method} addMethod = {this.addMethod} description={this.state.description} clicked={this.state.clicked} name={this.state.name} checkAnswer={this.state.checkAnswer} originalCount={this.originalCount} methodLength={this.state.method.length} showAnser={this.showAnser} answerClicked={this.state.answerClicked} edit={this.state.edit} editCard={this.editCard} changeMethod={this.changeMethod}
+            changeFirstButton={this.state.changeFirstButton}
             />
           </div>
           <div class="col-3"></div>

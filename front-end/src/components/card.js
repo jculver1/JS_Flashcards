@@ -7,7 +7,7 @@ const Card = (props) => {
   <div class="card-header">
     {props.methodLength === 0 ? 'Whoop!' : props.edit && props.answerClicked ? 
     <div class="input-group">
-      <textarea type={"text"} class="form-control" aria-label="With textarea" onChange={(event)=>props.newMethodName(event)}/>
+      <textarea class="form-control" aria-label="With textarea" onChange={(event)=>props.newMethodName(event)}/>
     </div> : props.answerClicked ? props.name : ''}
   </div>
   <div class="card-body">
@@ -17,10 +17,10 @@ const Card = (props) => {
     <p class="card-text"></p>
   </div>
   <div class="card-footer text-muted">
-    <a onClick = {props.addMethod} href="#" class="btn btn-primary">Next Question</a>
-    <a onClick = {props.showAnser} href="#" class="btn btn-primary mx-1">Show Answer</a>
-    <a onClick = {props.editCard} href="#" class="btn btn-primary mr-1">{props.edit ? 'Hide Edit' : 'Edit' }</a>
-      {props.edit ? <a onClick = {props.changeMethod} href="#" class="btn btn-primary">Save Changes</a> : ''}
+    <a onClick = {props.addMethod} href="#" class="btn btn-primary"> {props.changeFirstButton ? "Next Question" : "Let's get started!"}</a>
+    <a onClick = {props.showAnser} href="#" class="btn btn-success mx-1">Show Answer</a>
+    <a onClick = {props.editCard} href="#" class="btn btn-danger mr-1">{props.edit ? 'Hide Edit' : 'Edit' }</a>
+      {props.edit ? <a onClick = {props.changeMethod} href="#" class="btn btn-info">Save Changes</a> : ''}
   </div>
 </div>
 )

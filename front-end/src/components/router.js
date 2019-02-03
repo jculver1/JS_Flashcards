@@ -26,7 +26,7 @@ const AppRouter = (props) => (
       render={() => 
         <div>
         <Card
-          emptyList={props.emptyList} addMethod={props.addMethod} description={props.description} clicked={props.clicked} name={props.name} checkAnswer={props.checkAnswer} originalCount={props.originalCount} methodLength={props.methodLength} showAnser={props.showAnser} answerClicked={props.answerClicked} edit={props.edit} editCard={props.editCard} newMethodName={props.newMethodName} newMethodDescription={props.newMethodDescription} changeMethod={props.changeMethod}
+          emptyList={props.emptyList} addMethod={props.addMethod} description={props.description} clicked={props.clicked} name={props.name} checkAnswer={props.checkAnswer} originalCount={props.originalCount} methodLength={props.methodLength} showAnser={props.showAnser} answerClicked={props.answerClicked} edit={props.edit} editCard={props.editCard} newMethodName={props.newMethodName} newMethodDescription={props.newMethodDescription} changeMethod={props.changeMethod} changeFirstButton={props.changeFirstButton}
         />
         <Progress percent={props.percent}/>
         </div>
