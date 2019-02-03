@@ -74,13 +74,6 @@ getRandomMethod = (max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min 
 }
 
-percentDone = () => {
-  const percent = (1-(this.state.method.length / this.state.originalCount)) * 100 
-  this.setState({
-    percent: Math.round(percent)
-  })
-}
-
 addMethod = () => {
   const randIndex = this.getRandomMethod(this.state.method.length - 1)
   const randomMethod = this.state.method[randIndex]
@@ -95,11 +88,16 @@ addMethod = () => {
       answerClicked: false
     })
   }
-  this.percentDone()
 }
 
+// percentDone = () => {
+//   const percent = (1-(this.state.method.length / this.state.originalCount)) * 100 
+//   this.setState({
+//     percent: Math.round(percent)
+//   })
+// }
+
 showAnser = () => {
-  console.log('clicked')
   this.setState({
     answerClicked: true
   })
@@ -107,10 +105,13 @@ showAnser = () => {
 
 checkIfCorrect = (event) => {
   const newMethodList = this.state.method.filter(method => method.name !== this.state.name)
+  const findPercent = (1 - (newMethodList.length / this.state.originalCount)) * 100
+  console.log(findPercent)
   if(event.target.value === 'Yes'){ 
      this.setState({
-       method: newMethodList
-     }) 
+       method: newMethodList,
+       percent: Math.round(findPercent)
+     })
     }
   }
 
@@ -169,13 +170,13 @@ checkIfCorrect = (event) => {
         <div class="row pt-5">
           <div class="col-3"></div>
           <div class="col-6">
-            {this.state.answerClicked ? <Submit checkIfCorrect={this.checkIfCorrect}/> : ''}
+            {this.state.answerClicked ? <Submit checkIfCorrect={this.checkIfCorrect} percentDone={this.percentDone}/> : ''}
           </div>
           <div class="col-3"></div>
         </div>
-      <div class="row pt-5">
+        <div class="row pt-5">
+        </div>
       </div>
-    </div>
     );
   }
 }
