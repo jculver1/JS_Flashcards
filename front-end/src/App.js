@@ -38,7 +38,7 @@ async componentDidMount(){
     })
 }
 
-postNewMethod = () => {
+postNewMethod = async () => {
   fetch(this.serverName, {
     method: 'POST',
     headers: {
@@ -52,8 +52,10 @@ postNewMethod = () => {
   })
 }
 
-changeMethod = () => {
-  console.log('put it', this.state.id)
+changeMethod = async () => {
+  this.setState({
+    edit: !this.state.edit
+  })
   fetch(`${this.serverName}${this.state.id}`, {
     method: 'PUT',
     headers: {
@@ -136,7 +138,7 @@ checkIfCorrect = (event) => {
     })
   }
 
- deleteMethod = () => {
+ deleteMethod = async () => {
     fetch(`${this.serverName}${this.state.id}`, {
       method: 'DELETE'
     }).then(
@@ -148,12 +150,10 @@ checkIfCorrect = (event) => {
   }
 
   editCard = () => {
-    console.log('edit button')
     this.setState({
       edit: !this.state.edit
     })
   }
-  
 
   render() {
     return (
